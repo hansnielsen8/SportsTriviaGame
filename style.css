@@ -1,0 +1,13 @@
+body {
+    background-color: rgb(29,26,26)
+}
+
+h1 {
+    color: aqua;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
