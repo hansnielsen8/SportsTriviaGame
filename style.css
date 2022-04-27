@@ -9,7 +9,6 @@ h1 {
     font-size: 5.3rem;
     margin-bottom: 5rem;
     margin-top: 25rem;
-
 }
 
 * {
@@ -25,7 +24,6 @@ h1 {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-
 }
 
 .flex-column {
@@ -51,6 +49,13 @@ h1 {
     background: red;
     border-radius: 4px;
     text-decoration: none;
-
 }
 
+.btn:hover {
+cursor: pointer;
+box-shadow: -5px 1px 24px 5px rgba(255,0,0,0.75);
+-webkit-box-shadow: -5px 1px 24px 5px rgba(255,0,0,0.75);
+-moz-box-shadow: -5px 1px 24px 5px rgba(255,0,0,0.75);
+transition: transform 150ms;
+transform: scale(1.03);
+}
