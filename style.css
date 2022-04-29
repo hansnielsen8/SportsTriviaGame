@@ -11,10 +11,9 @@ h1 {
     margin-top: 25rem;
 }
 
+/*Give the game a global font*/
+
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
     font-size: 63%;
     font-family: 'Anton', sans-serif;
 }
@@ -26,22 +25,15 @@ h1 {
     margin: 0 auto;
 }
 
-.flex-column {
+/*Display the buttons in a column rather than side by side*/
+
+.home-buttons {
     display: flex;
     flex-direction: column;
 }
 
-
-
-.flex-center {
-    justify-content: center;
-    align-items: center;
-}
-
-
-
 .btn {
-    font-size: 2.5rem;
+    font-size: 3rem;
     text-align: center;
     margin-bottom: 1rem;
     padding: 2rem 0;
@@ -51,11 +43,27 @@ h1 {
     text-decoration: none;
 }
 
+/*Got the box shadow values from cssgenerator.org*/
+
 .btn:hover {
-cursor: pointer;
-box-shadow: -5px 1px 24px 5px rgba(255,0,0,0.75);
--webkit-box-shadow: -5px 1px 24px 5px rgba(255,0,0,0.75);
--moz-box-shadow: -5px 1px 24px 5px rgba(255,0,0,0.75);
-transition: transform 150ms;
-transform: scale(1.03);
+    cursor: pointer;
+    box-shadow: -5px 1px 24px 5px rgba(255,0,0,0.75);
+    -webkit-box-shadow: -5px 1px 24px 5px rgba(255,0,0,0.75);
+    -moz-box-shadow: -5px 1px 24px 5px rgba(255,0,0,0.75);
+    transition: transform 150ms;
+    transform: scale(1.03);
 }
+
+/*Adjust values of the FA Icons so that they dont look so small and out of place*/
+
+.fa-football {
+    margin-left: 1rem;
+    font-size: 3rem;
+}
+
+.fa-crown {
+    margin-left: 1rem;
+    font-size: 3rem;
+}
+
+
