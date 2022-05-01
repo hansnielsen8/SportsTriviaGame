@@ -38,7 +38,7 @@ h1 {
     margin-bottom: 1rem;
     padding: 2rem 0;
     color: black;
-    background: red;
+    background: gold;
     border-radius: 4px;
     text-decoration: none;
 }
@@ -47,9 +47,9 @@ h1 {
 
 .btn:hover {
     cursor: pointer;
-    box-shadow: -5px 1px 24px 5px rgba(255,0,0,0.75);
-    -webkit-box-shadow: -5px 1px 24px 5px rgba(255,0,0,0.75);
-    -moz-box-shadow: -5px 1px 24px 5px rgba(255,0,0,0.75);
+    box-shadow: -1px 4px 64px 0px rgba(255,215,0,0.75);
+    -webkit-box-shadow: -1px 4px 64px 0px rgba(255,215,0,0.75);
+    -moz-box-shadow: -1px 4px 64px 0px rgba(255,215,0,0.75);
     transition: transform 150ms;
     transform: scale(1.03);
 }
