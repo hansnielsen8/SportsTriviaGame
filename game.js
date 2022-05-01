@@ -1,6 +1,18 @@
-function triviaStart() {
-    console.log("Test")
-}
+//Utilize document.querySelector to select the html elements that need to be modified on screen
+
+const question = document.querySelector('#question');
+const answers = document.querySelectorAll('.answer-text');
+const progressionText = document.querySelector('#progressText');
+const scoreText = document.querySelector('#score');
+
+//Establish the global variables that will affect how the game functions such as the score and points added to the score when answered correctly
+
+let score = 0
+let questionCounter = 0
+let scorePoints = 10
+let maxQuestions = 10
+
+//Array of the questions and answer choices along with the answer num value that will match up with the data number html element in order to be able to correctly select an answer
 
 let questions = [
     {
@@ -36,7 +48,7 @@ let questions = [
         answer: 1,
     },
     {
-        question: `Which team won the first Super Bowl ever?`,
+        question: `Which team won the first ever Super Bowl?`,
         choice1: `New York Giants`,
         choice2: `Cincinnati Bengals`,
         choice3: `Green Bay Packers`,
@@ -85,5 +97,37 @@ let questions = [
     },
 ]
 
+//Reset score and question counter so that the game can be replayed after pressing the play again button (invoke the newQuestion function in order to pull in questions from the array)
 
-playGame()
+playTrivia = () => {
+    questionCounter = 0
+    score = 0
+    availableQuestions = [...questions]
+    newQuestion()
+}
+
+
+newQuestion = () => {
+    //If statement that will return the end of game screen displaying highscore once there are no more available questions(game complete)
+    if(availableQuestions.length === 0) {
+        return window.location.assign('end.html')
+    }
+    //Increase the questioncounter after a new question has been displayed and update the question progression html element
+    questionCounter++
+    progressionText.innerText = `Question ${questionCounter} of ${maxQuestions}`
+    
+    const randomQuestion = Math.floor(Math.random() * availableQuestions.length)
+    currentQuestion = availableQuestions[randomQuestion]
+    question.innerText = currentQuestion.question
+
+    answers.forEach(choice => {
+        const number = choice.dataset['number']
+        choice.innerText = currentQuestion['choice' + number]
+    })
+    //Use the .splice method to remove the question from the array once it has been used so that repeating questions do not occur
+    availableQuestions.splice(randomQuestion, 1)
+
+}
+
+playTrivia()
+
