@@ -102,17 +102,19 @@ let questions = [
 playTrivia = () => {
     questionCounter = 0
     score = 0
+    
+    //Use the spread operator in order to "unpack" the array elements so that they can be pulled and used
+    
     availableQuestions = [...questions]
     newQuestion()
 }
-
 
 newQuestion = () => {
     //If statement that will return the end of game screen displaying highscore once there are no more available questions(game complete)
     if(availableQuestions.length === 0) {
         return window.location.assign('end.html')
     }
-    //Increase the questioncounter after a new question has been displayed and update the question progression html element
+    //Increase the question counter after a new question has been displayed and update the question progression html element
     questionCounter++
     progressionText.innerText = `Question ${questionCounter} of ${maxQuestions}`
     
@@ -128,6 +130,37 @@ newQuestion = () => {
     availableQuestions.splice(randomQuestion, 1)
 
 }
+//Add an event listener so that you can click the appropriate html element (data-number)
+answers.forEach(answer => {
+    answer.addEventListener('click', a => {
+        const selectedChoice = a.target
+        const selectedAnswer = selectedChoice.dataset['number']
+ 
+        //Found on stack overflow to use the ternary operator (?) rather than many if/else statements especially when working with booleans
+        let applyClass = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect'
+ 
+        if(applyClass === 'correct') {
+            increaseScore(scorePoints)
+        }
+ 
+        //Add a temporary class to the html element so that the css can temporarily be styled, allowing for a green background when correct and red when incorrect
+        selectedChoice.parentElement.classList.add(applyClass)
+ 
+        //Async function that removes the class after half a second so that the color doesn't stick to the box of the html element, then loads a new question and resets 
+        setTimeout(() => {
+            selectedChoice.parentElement.classList.remove(applyClass)
+            newQuestion()
+ 
+        }, 500)
+    })
+})
+ 
+//Utilize .innertext to alter the scoreText element after a question is answered correctly
+increaseScore = num => {
+    score +=num
+    scoreText.innerText = score
+}
+
 
 playTrivia()
 
