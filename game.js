@@ -112,6 +112,7 @@ playTrivia = () => {
 newQuestion = () => {
     //If statement that will return the end of game screen displaying highscore once there are no more available questions(game complete)
     if(availableQuestions.length === 0) {
+        localStorage.setItem('recentScore',score)
         return window.location.assign('end.html')
     }
     //Increase the question counter after a new question has been displayed and update the question progression html element
