@@ -80,7 +80,7 @@ let questions = [
         answer: 3,
     },
     {
-        question: `Who won Super Bowl LVI?`,
+        question: `Who won Super Bowl LVI (2022)?`,
         choice1: `Los Angeles Rams`,
         choice2: `Kansas City Chiefs`,
         choice3: `New York Giants`,
@@ -146,12 +146,12 @@ answers.forEach(answer => {
         //Add a temporary class to the html element so that the css can temporarily be styled, allowing for a green background when correct and red when incorrect
         selectedChoice.parentElement.classList.add(applyClass)
  
-        //Async function that removes the class after half a second so that the color doesn't stick to the box of the html element, then loads a new question and resets 
+        //Async function that removes the class after 1 second so that the color doesn't stick to the box of the html element, then loads a new question and resets 
         setTimeout(() => {
             selectedChoice.parentElement.classList.remove(applyClass)
             newQuestion()
  
-        }, 500)
+        }, 1000)
     })
 })
  
